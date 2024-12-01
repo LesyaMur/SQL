@@ -1,0 +1,70 @@
+Задание 3.
+SELECT model,ram,screen
+FROM laptop
+WHERE price>1000
+
+Задание 4.
+SELECT*FROM printer
+WHERE color='y'
+
+Задание 5.
+SELECT model,speed,hd
+FROM pc
+WHERE (cd='12x' or cd='24x')
+AND price<600
+
+Задание 6.
+SELECT DISTINCT maker,speed
+FROM laptop
+JOIN product
+ON product.model=laptop.model
+WHERE hd>=10
+
+Задание 7.
+SELECT laptop.model,price
+FROM laptop
+JOIN product
+ON product.model=laptop.model
+WHERE product.maker='B'
+
+UNION
+
+SELECT pc.model,price
+FROM pc
+JOIN product
+ON product.model=pc.model
+WHERE product.maker='B'
+
+UNION
+
+SELECT printer.model,price
+FROM printer
+JOIN product
+ON product.model=printer.model
+WHERE product.maker='B'
+
+Задание 8.
+SELECT maker
+FROM product
+WHERE type='pc'
+
+EXCEPT
+
+SELECT maker
+FROM product
+WHERE type='laptop'
+
+Задание 9.
+SELECT DISTINCT maker
+FROM product
+JOIN pc
+ON product.model=pc.model
+WHERE speed>=450
+
+Задание 10.
+SELECT model,price
+FROM printer
+WHERE price= (
+     SELECT MAX(price)
+     FROM printer
+)
