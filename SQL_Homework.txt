@@ -68,3 +68,32 @@ WHERE price= (
      SELECT MAX(price)
      FROM printer
 )
+
+Задание 11.
+SELECT AVG(speed)
+FROM pc
+
+Задание 12.
+SELECT AVG(speed)
+FROM laptop
+WHERE price>1000
+
+Задание 13.
+SELECT AVG(speed)
+FROM pc
+JOIN product
+ON product.model=pc.model
+WHERE maker='A'
+
+Задание 14.
+SELECT ships.class,ships.name,country
+FROM ships
+JOIN classes
+ON classes.class=ships.class
+WHERE numGans>=10
+
+Задание 15.
+SELECT HD
+FROM pc
+GROUP BY hd
+HAVING COUNT(*)>=2
