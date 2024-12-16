@@ -97,3 +97,39 @@ SELECT HD
 FROM pc
 GROUP BY hd
 HAVING COUNT(*)>=2
+
+Задание 16.
+SELECT DISTINCT a.model, b.model, a.speed, a.ram
+FROM pc a, pc b
+WHERE a.ram=b.ram
+AND a.speed=b.speed
+AND a.model>b.model
+
+Задание 17.
+SELECT DISTINCT p.type, l.model, l.speed
+FROM laptop l, product p
+WHERE speed<ALL (SELET speed FROM pc)
+AND l.model=p.model
+
+Задание 18.
+SELECT DISTINCT product.maker, printer.prise
+FROM product, printer
+WHERE product.model=printer.model
+AND printer color='y'
+AND printer prise=(SELECT MIN(printer.price)
+FROM printer
+WHERE printer color='y'
+
+Задание 19.
+SELECT product.maker, AVG SUM(laptop.screen)
+FROM product,laptop
+WHERE product.type='laptop'
+AND product.model=laptop.model
+GROUP BY product.maker
+
+Задание 20.
+SELECT product.maker, COUNT(*)
+FROM product
+WHERE product.type='pc'
+GROUP BY product.maker
+HAVING COUNT(*)>=3
